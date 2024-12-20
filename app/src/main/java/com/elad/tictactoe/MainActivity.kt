@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var buttons: Array<Array<Button>>
@@ -23,11 +22,15 @@ class MainActivity : AppCompatActivity() {
         textViewStatus = findViewById(R.id.textViewStatus)
         buttonPlayAgain = findViewById(R.id.buttonPlayAgain)
 
+        val buttonIds = arrayOf(
+            arrayOf(R.id.button_00, R.id.button_01, R.id.button_02),
+            arrayOf(R.id.button_10, R.id.button_11, R.id.button_12),
+            arrayOf(R.id.button_20, R.id.button_21, R.id.button_22)
+        )
+
         buttons = Array(3) { row ->
             Array(3) { col ->
-                val buttonID = "button_${row}${col}"
-                val resID = resources.getIdentifier(buttonID, "id", packageName)
-                findViewById<Button>(resID).apply {
+                findViewById<Button>(buttonIds[row][col]).apply {
                     setOnClickListener { onButtonClick(this) }
                 }
             }
@@ -39,22 +42,20 @@ class MainActivity : AppCompatActivity() {
     private fun onButtonClick(button: Button) {
         if (button.text.isNotEmpty()) return
 
-        button.text = if (playerXTurn) "X" else "O"
+        button.setText(if (playerXTurn) R.string.mark_x else R.string.mark_o)
         roundCount++
 
-        // Check for win using the first part of the pair (Boolean)
         val (isWinner, winningButtons) = checkForWin()
         if (isWinner) {
-            val winner = if (playerXTurn) "Player X wins!" else "Player O wins!"
+            val winner = if (playerXTurn) R.string.player_x_wins else R.string.player_o_wins
             showWinner(winner, winningButtons)
         } else if (roundCount == 9) {
-            showWinner("It's a Draw!")
+            showWinner(R.string.game_draw)
         } else {
             playerXTurn = !playerXTurn
-            textViewStatus.text = if (playerXTurn) "Player X's Turn" else "Player O's Turn"
+            textViewStatus.setText(if (playerXTurn) R.string.player_x_turn else R.string.player_o_turn)
         }
     }
-
 
     private fun checkForWin(): Pair<Boolean, List<Pair<Int, Int>>> {
         val field = Array(3) { row -> Array(3) { col -> buttons[row][col].text.toString() } }
@@ -80,9 +81,8 @@ class MainActivity : AppCompatActivity() {
         return Pair(false, emptyList())
     }
 
-
-    private fun showWinner(message: String, winningButtons: List<Pair<Int, Int>>? = null) {
-        textViewStatus.text = message
+    private fun showWinner(messageResId: Int, winningButtons: List<Pair<Int, Int>>? = null) {
+        textViewStatus.setText(messageResId)
         buttonPlayAgain.visibility = View.VISIBLE
 
         if (winningButtons != null) {
@@ -92,7 +92,6 @@ class MainActivity : AppCompatActivity() {
         }
         disableButtons()
     }
-
 
     private fun disableButtons() {
         for (row in buttons) {
@@ -105,13 +104,14 @@ class MainActivity : AppCompatActivity() {
     private fun resetGame() {
         roundCount = 0
         playerXTurn = true
-        textViewStatus.text = "Player X's Turn"
+        textViewStatus.setText(R.string.player_x_turn)
         buttonPlayAgain.visibility = View.GONE
 
         for (row in buttons) {
             for (button in row) {
-                button.text = ""
+                button.setText(R.string.empty_text)
                 button.isEnabled = true
+                button.setBackgroundResource(android.R.drawable.btn_default)
             }
         }
     }

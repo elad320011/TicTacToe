@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="player_x_turn">Player X\'s Turn</string>
+    <string name="player_o_turn">Player O\'s Turn</string>
+    <string name="player_x_wins">Player X wins!</string>
+    <string name="player_o_wins">Player O wins!</string>
+    <string name="game_draw">It\'s a Draw!</string>
+    <string name="play_again">Play Again</string>
+    <string name="mark_x">X</string>
+    <string name="mark_o">O</string>
+    <string name="empty_text"></string>
+    <string name="grid_button_desc">Tic Tac Toe grid button</string>
+    <string name="play_again_desc">Start a new game</string>
 </resources>
