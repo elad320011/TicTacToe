@@ -1,0 +1,21 @@
+<resources>
+    <!-- Define the light theme -->
+    <style name="Theme.TicTacToe" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/primaryLightColor</item>  <!-- Optional: Change background color -->
+    </style>
+
+    <style name="GameButton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
+
+

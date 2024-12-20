@@ -1,0 +1,72 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/lightGray"> <!-- Use lighter background color -->
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player X's Turn"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/textColorPrimary" /> <!-- Update to dark text color -->
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/button_00"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_01"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_02"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_10"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_11"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_12"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_20"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_21"
+            style="@style/GameButton" />
+
+        <Button
+            android:id="@+id/button_22"
+            style="@style/GameButton" />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/buttonPlayAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        android:backgroundTint="@color/secondaryColor"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+</LinearLayout>
