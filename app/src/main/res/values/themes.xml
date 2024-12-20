@@ -1,2 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.TicTacToe" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/primaryLightColor</item>  <!-- Optional: Change background color -->
+    </style>
 </resources>

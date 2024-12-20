@@ -32,12 +32,15 @@ class MainActivity : AppCompatActivity() {
             Array(3) { col ->
                 findViewById<Button>(buttonIds[row][col]).apply {
                     setOnClickListener { onButtonClick(this) }
+                    // Apply the border background to each button immediately
+                    setBackgroundResource(android.R.drawable.btn_default)
                 }
             }
         }
 
         buttonPlayAgain.setOnClickListener { resetGame() }
     }
+
 
     private fun onButtonClick(button: Button) {
         if (button.text.isNotEmpty()) return
